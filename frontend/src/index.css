@@ -1,0 +1,171 @@
+:root {
+  /* Base tokens */
+  --font-sans: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.6;
+  --font-weight-regular: 400;
+
+  /* Color tokens (dark by default) */
+  --bg: #1e1e1e;
+  --surface: #232323; /* card / panel background */
+  --text: #e6eef8; /* main text */
+  --muted: #bfc9d6; /* secondary text */
+  --accent: #7a8cff; /* links & accents */
+  --accent-weak: #3b3f7a;
+  --border: rgba(255,255,255,0.06);
+
+  font-family: var(--font-sans);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-regular);
+
+  color-scheme: light dark;
+  color: var(--text);
+  background-color: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: var(--accent); /* softer blue for links */
+  text-decoration: none;
+  transition: color 0.18s ease, text-decoration 0.18s ease;
+}
+a:hover {
+  color: #a3b1ff; /* lighter blue on hover */
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 2rem; /* padding for breathing space */
+  flex-direction: column; /* organize writings vertically */
+  gap: 1.5rem; /* consistent spacing between elements */
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
+  font-weight: 700;
+  color: inherit;
+  max-width: 600px;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.75em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: var(--surface); /* lighter button bg to stand out */
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+  max-width: 240px;
+  width: 100%;
+}
+button:hover {
+  border-color: #7a8cff;
+  background-color: #3b3b3b;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --text: #213547;
+    --muted: #52657a;
+    --accent: #4a63ff;
+    --accent-weak: #2f3aaf;
+    --border: rgba(33,53,71,0.06);
+  }
+  a { color: var(--accent); }
+  a:hover { color: #747bff; }
+  button {
+    background-color: var(--surface);
+    color: var(--text);
+  }
+  button:hover { background-color: #eef2ff; }
+}
+
+/* Page container / card for readable content */
+.container,
+.card {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  border: 1px solid var(--border);
+}
+
+/* Table styling for readable data */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  color: var(--text);
+}
+
+thead th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.01);
+}
+
+tbody tr:hover {
+  background-color: rgba(122,140,255,0.04);
+}
+
+/* Make th look good on light mode too */
+@media (prefers-color-scheme: light) {
+  thead th { color: var(--muted); background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); }
+  tbody td { border-bottom-color: rgba(33,53,71,0.04); }
+}
+
+/* Accessibility: focus outlines */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 2px;
+}
+
+/* Small helpers */
+.muted { color: var(--muted); }
+.stack { display: flex; gap: 0.5rem; align-items: center; }
+

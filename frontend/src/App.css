@@ -1,0 +1,182 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e293b, #0f172a); /* dark gradient background */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: #f1f5f9; /* light text for contrast */
+}
+
+.container {
+  width: 95%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: #111827; /* dark card background */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Headings */
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #38bdf8; /* bright cyan accent */
+}
+
+/* Dashboard layout: form + charts */
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 280px;
+}
+
+.charts-section {
+  flex: 1;
+  min-width: 280px;
+}
+/* Form styling */.form-section input {  width: 100%;  margin-bottom: 0.75rem;  padding: 0.6rem;  border: 1px solid #334155;  border-radius: 6px;  font-size: 1rem;  background: #1e293b;  color: #f1f5f9;  transition: border-color 0.3s ease, box-shadow 0.3s ease;}.form-section input::placeholder {  color: #94a3b8;}
+.form-section input {
+  width: 100%;
+  margin-bottom: 1rem;          /* more spacing between fields */
+  padding: 1rem;                /* larger padding for bigger field size */
+  border: 1px solid #334155;
+  border-radius: 8px;           /* slightly rounder corners */
+  font-size: 1.1rem;            /* bigger text */
+  background: #1e293b;
+  color: #f1f5f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section input::placeholder {
+  color: #94a3b8;
+  font-size: 1rem;              /* larger placeholder text */
+}
+
+.form-section input:focus {
+  border-color: #38bdf8;
+  outline: none;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+}
+
+.form-section input:focus {
+  border-color: #38bdf8;
+  outline: none;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.7);
+}
+
+.form-section button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-section button:hover {
+  background: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+/* Charts styling */
+.charts-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.charts-section canvas {
+  background: #0f172a;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  width: 100% !important;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
+
+th {
+  background: #1e293b;
+  color: #facc15; /* golden headers */
+}
+
+tr:nth-child(even) {
+  background: #1e293b;
+}
+
+tr:hover {
+  background: #0f172a;
+}
+
+/* Buttons inside table */
+table button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+table button:first-child {
+  background: #38bdf8;
+  color: #0f172a;
+  margin-right: 0.5rem;
+}
+
+table button:first-child:hover {
+  background: #0ea5e9;
+}
+
+table button:last-child {
+  background: #f87171;
+  color: #fff;
+}
+
+table button:last-child:hover {
+  background: #dc2626;
+}
+
+/* Feedback messages */
+.error {
+  color: #f87171; /* red for errors */
+  font-weight: bold;
+}
+
+.success {
+  color: #4ade80; /* green for success */
+  font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+  .charts-section {
+    margin-top: 1.5rem;
+  }
+}
